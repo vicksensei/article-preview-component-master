@@ -1,0 +1,228 @@
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+- Very Dark Grayish Blue: hsl(217, 19%, 35%)
+- Desaturated Dark Blue: hsl(214, 17%, 51%)
+- Grayish Blue: hsl(212, 23%, 69%)
+- Light Grayish Blue: hsl(210, 46%, 95%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 13px
+
+### Headings
+
+- Family: [Manrope](https://fonts.google.com/specimen/Manrope)
+- Weights: 500, 700
+
+## Icons
+
+We provide SVGs for the social icons. But please feel free to use a font icon library if you like. Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com) */
+:root {
+  --grayBlue: hsl(212, 23%, 69%);
+  --lightGrayBlue: hsl(210, 46%, 95%);
+  --veryDarkGrayishBlue: hsl(217, 19%, 35%);
+  --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+}
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+body {
+  background-color: var(--lightGrayBlue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  color: var(--veryDarkGrayishBlue);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 50vw;
+  border-radius: 1vh;
+}
+
+.copy {
+  width: 60%;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+}
+.copy p {
+  font-size: larger;
+  line-height: 3vh;
+}
+.image {
+  width: 40%;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1vh 0 0 1vh;
+}
+
+.header {
+  font-size: xx-large;
+}
+.authorContainer {
+  display: flex;
+  align-items: center;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.avatar {
+  border-radius: 50%;
+  height: 5vh;
+}
+.author {
+  padding: 0 0 0 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  line-height: 2vh;
+}
+.button {
+  background-color: var(--lightGrayBlue);
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button:hover {
+  background-color: var(--DesaturatedDarkBlue);
+}
+.button:hover img {
+  filter: brightness(0) invert();
+}
+.button:active {
+  background-color: var(--DesaturatedDarkBlue);
+}
+
+.button img {
+  width: 30%;
+  height: 30%;
+  border-radius: 0;
+}
+.bold {
+  font-weight: 700;
+}
+
+.popupParent {
+  position: relative;
+}
+#popup {
+  position: absolute;
+  background-color: var(--veryDarkGrayishBlue);
+  color: var(--grayBlue);
+  text-transform: uppercase;
+  letter-spacing: 0.5vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1vh 1vw;
+  border-radius: 1vh;
+  font-size: small;
+  width: 10vw;
+  top: -3vw;
+  left: 3vw;
+}
+
+#popup::after {
+  content: " ";
+  height: 0;
+  position: absolute;
+  width: 0;
+  left: 50%;
+  bottom: -50%;
+  border: 10px solid transparent;
+  border-top-color: var(--veryDarkGrayishBlue);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.attribution {
+  margin: 8vh;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 90vw;
+    flex-direction: column;
+    height: 80vh;
+    /* justify-content: space-between; */
+  }
+  .image {
+    width: 100%;
+    height: 40%;
+    overflow-y: hidden;
+  }
+  .image img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 1vh 0 0 1vh;
+  }
+  .copy {
+    width: auto;
+    height: 60%;
+    padding: 0vw 10vw;
+    line-height: 4vh;
+    justify-content: space-evenly;
+  }
+  .header {
+    font-size: medium;
+    font-weight: 700;
+  }
+
+  .attribution {
+    margin: 1vh;
+  }
+
+  #popup {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90vw;
+    padding: 5vw 0vw;
+    left: 5vw;
+    top: 80vh;
+    height: 8vw;
+    border-radius: 0 0 1vh 1vh;
+  }
+  #popup::after {
+    display: none;
+  }
+  .popupParent {
+    /* width: 100%; */
+    position: static;
+  }
+}

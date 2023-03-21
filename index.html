@@ -1,36 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Article preview component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Article preview component</title>
 
-  Shift the overall look and feel by adding these wonderful 
-  touches to furniture in your home
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="image"><img src="images/drawers.jpg" alt="drawers" /></div>
+      <div class="copy">
+        <div class="header">
+          Shift the overall look and feel by adding these wonderful touches to
+          furniture in your home
+        </div>
+        <p>
+          Ever been in a room and felt like something was missing? Perhaps it
+          felt slightly bare and uninviting. I’ve got some simple tips to help
+          you make any room feel complete.
+        </p>
 
-  Ever been in a room and felt like something was missing? Perhaps 
-  it felt slightly bare and uninviting. I’ve got some simple tips 
-  to help you make any room feel complete.
+        <div class="footer">
+          <div id="AC" class="authorContainer">
+            <img class="avatar" src="images/avatar-michelle.jpg" alt="avatar" />
+            <div class="author">
+              <span class="name bold">Michelle Appleton</span
+              ><span> 28 Jun 2020</span>
+            </div>
+          </div>
+          <div class="popupParent">
+            <div id="popup" class="hidden">
+              Share
+              <img src="images/icon-facebook.svg" alt="icon-facebook" />
+              <img src="images/icon-twitter.svg" alt="icon-twitter" />
+              <img src="images/icon-pinterest.svg" alt="icon-pinterest" />
+              <div id="bb" class="button" onclick="clickShare()">
+                <img src="images/icon-share.svg" alt="Share" />
+              </div>
+            </div>
+          </div>
+          <div id="ba" class="button" onclick="clickShare()">
+            <img src="images/icon-share.svg" alt="Share" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Victor Payano</a>.
+    </div>
+    <script>
+      function clickShare() {
+        let popup = document.getElementById("popup");
+        let authorContainer = document.getElementById("AC");
+        let buttonA = document.getElementById("ba");
+        let buttonB = document.getElementById("bb");
+        let mediaMatched = window.matchMedia("(max-width: 600px)").matches;
 
-  Michelle Appleton
-  28 Jun 2020
-
-  Share
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        console.log(mediaMatched);
+        if (popup.classList.contains("hidden")) {
+          popup.classList.remove("hidden");
+          if (mediaMatched) {
+            buttonA.classList.add("hidden");
+            buttonB.classList.remove("hidden");
+          }
+        } else {
+          popup.classList.add("hidden");
+          if (mediaMatched) {
+            buttonA.classList.remove("hidden");
+            buttonB.classList.add("hidden");
+          }
+        }
+      }
+    </script>
+  </body>
 </html>
